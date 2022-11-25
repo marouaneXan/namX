@@ -1,5 +1,6 @@
 const express=require('express')
 const router = express.Router();
-router.get('/login')
+const {login}=require('../../../Controllers/Admin/auth')
+router.get('/login',login)
 
 module.exports=router
