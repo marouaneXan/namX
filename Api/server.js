@@ -4,6 +4,10 @@ const dotenv = require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+//mongodb connection
+const connectDB = require("./Config/db");
+connectDB();
+
 //body parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
