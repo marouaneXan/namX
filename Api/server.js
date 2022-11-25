@@ -20,6 +20,9 @@ app.use(cors());
 //Admin auth route
 app.use('/api/v1/admin/auth',require('./Routes/Admin/auth/authRoute'))
 
+//Client auth route
+app.use('/api/v1/client/auth',require('./Routes/Client/auth/authRoute'))
+
 //*************************************************************************************/
 
 //Error handler
