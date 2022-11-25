@@ -16,6 +16,11 @@ app.use(express.urlencoded({ extended: false }));
 //cors
 app.use(cors());
 
+//***************************************Global Routes *********************************/
+//Admin auth route
+
+//*************************************************************************************/
+
 //Error handler
 app.use(ErrorHandler);
 
