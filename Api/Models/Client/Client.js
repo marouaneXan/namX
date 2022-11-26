@@ -33,7 +33,7 @@ const clientSchema = mongoose.Schema(
     password: {
       type: String,
       required: [true, "Please add a password field"],
-    },
+    }
   },
   {
     timestamps: true,
