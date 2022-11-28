@@ -8,7 +8,7 @@ const Type=require('../../Models/Car/Type')
 const addCar = asyncHandler(async (req, res) => {
   const { car_name } = req.body;
   const type=await Type.findById(req.params.type_id)
-  if(type){
+  if(!type){
     res.status(400);
     throw new Error("Type not exist :(");
   }
@@ -34,7 +34,7 @@ const addCar = asyncHandler(async (req, res) => {
 // @route /api/v1/cars
 // access private
 const getCars = asyncHandler(async (req, res) => {
-  const cars = await Car.find();
+  const cars = await Car.find().populate("type");
   res.status(200).json(cars);
 });
 
