@@ -26,6 +26,9 @@ app.use('/api/v1/client/auth',require('./Routes/Client/auth/authRoute'))
 //Details route
 app.use('/api/v1/details',require('./Routes/Car/detailsRoute'))
 
+//Car route
+app.use('/api/v1/car',require('./Routes/Car/carRoute'))
+
 //*************************************************************************************/
 
 //Error handler
