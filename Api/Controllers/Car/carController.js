@@ -16,7 +16,10 @@ const addCar = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Please add all fields");
   }
-  const newCar = await Car.create(req.body);
+  const newCar = await Car.create({
+    car_name,
+    type:type._id
+  });
   if (newCar) {
     res.status(200).json({
       message: "car created successfully",
