@@ -27,7 +27,7 @@ app.use('/api/v1/client/auth',require('./Routes/Client/auth/authRoute'))
 app.use('/api/v1/details',require('./Routes/Car/detailsRoute'))
 
 //Car route
-app.use('/api/v1/car',require('./Routes/Car/carRoute'))
+app.use('/api/v1/cars',require('./Routes/Car/carRoute'))
 
 //*************************************************************************************/
 
