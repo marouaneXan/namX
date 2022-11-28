@@ -5,7 +5,8 @@ const Detail = require("../../Models/Car/Detail");
 // @route /api/v1/details
 // access private
 const addDetails = asyncHandler(async (req, res) => {
-  if (!req.body) {
+  const {key,value}=req.body
+  if (!key || !value) {
     res.status(400);
     throw new Error("Please add all fields");
   }
