@@ -6,7 +6,7 @@ const typeSchema = mongoose.Schema(
         required:true,
     },
     details:{
-        type:mongoose.Schema.Types.ObjectId,
+        type:[mongoose.Schema.Types.ObjectId],
         required:true,
         ref:"Detail"
     },
