@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const typeSchema = mongoose.Schema(
   {
-    desc:{
+    car_type:{
         type:String,
         required:true,
     },

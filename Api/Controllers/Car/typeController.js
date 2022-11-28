@@ -6,7 +6,7 @@ const Type = require("../../Models/Car/Type");
 // access private
 const addType = asyncHandler(async (req, res) => {
   const { car_type,details } = req.body;
-  if (!car_type || details) {
+  if (!car_type || !details) {
     res.status(400);
     throw new Error("Please add all fields");
   }
