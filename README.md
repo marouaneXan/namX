@@ -58,33 +58,41 @@ MIT
 ## Api
 
 1- Auth
-** Auth for Client
+<br>
+\*\* Auth for Client
+<br>
+
 - http://localhost:5000/api/v1/client/auth/login
 - http://localhost:5000/api/v1/client/auth/register
-**Auth for Admin
+  <br>
+  \*\*Auth for Admin
+  <br>
 - http://localhost:5000/api/v1/admin/auth/login
 - http://localhost:5000/api/v1/admin/auth/register
 
   2- Type
+
 - http://localhost:5000/api/v1/types ====> method: GET, @desc: get all types
 - http://localhost:5000/api/v1/trips ====> method:POST, @desc: create type
 - http://localhost:5000/api/v1/trips/:type_id ====> method:DELETE, @desc: delete type
 - http://localhost:5000/api/v1/trips/:type_id ====> method:PUT, @desc: update type
 
   3- Car
+
 - http://localhost:5000/api/v1/cars ====> method: GET, @desc: get all cars
 - http://localhost:5000/api/v1/cars/:type_id ====> method: POST, @desc: create car
 - http://localhost:5000/api/v1/cars/:car_id ====> method: PUT, @desc: update car
 - http://localhost:5000/api/v1/cars/:car_id ====> method: DELETE, @desc: delete car
 
   4- Color
+
 - http://localhost:5000/api/v1/colors ====> method: GET, @desc: get all colors
 - http://localhost:5000/api/v1/color ====> method: POST, @desc: create color
 - http://localhost:5000/api/v1/color/:color_id ====> method: PUT, @desc: update color
 - http://localhost:5000/api/v1/color/:color_id ====> method: DELETE, @desc: delete color
 
-
   3- Orders
+
 - http://localhost:5000/api/v1/orders ====> method: GET, @desc: get all orders
 - http://localhost:5000/api/v1/orders/:trip_id/:client_id ====> method: POST, @desc: make order
 
