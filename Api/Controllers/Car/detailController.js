@@ -6,18 +6,19 @@ const Detail = require("../../Models/Car/Detail");
 // access private
 const addDetails = asyncHandler(async (req, res) => {
   const {key,value}=req.body
+  const _exist=await Detail.findOne(req.body)
   if (!key || !value) {
     res.status(400);
     throw new Error("Please add all fields");
   }
   const details = await Detail.create(req.body);
-  if (details) {
+  if (details && !_exist) {
     res.status(200).json({
       message: "details created successfully",
     });
   } else {
     res.status(400);
-    throw new Error("Something wrong :(");
+    throw new Error("Enter different value :(");
   }
 });
 
