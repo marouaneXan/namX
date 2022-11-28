@@ -23,6 +23,9 @@ app.use('/api/v1/admin/auth',require('./Routes/Admin/auth/authRoute'))
 //Client auth route
 app.use('/api/v1/client/auth',require('./Routes/Client/auth/authRoute'))
 
+//Details route
+app.use('/api/v1/details',require('./Routes/Car/detailsRoute'))
+
 //*************************************************************************************/
 
 //Error handler
