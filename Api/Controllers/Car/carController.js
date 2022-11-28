@@ -21,6 +21,15 @@ const addCar = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc GET getCars
+// @route /api/v1/cars
+// access private
+const getCars = asyncHandler(async (req, res) => {
+  const cars = await Car.find();
+  res.status(200).json(cars);
+});
+
 module.exports = {
   addCar,
+  getCars
 };
