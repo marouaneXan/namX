@@ -21,6 +21,15 @@ const addType = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc GET getTypes
+// @route /api/v1/types
+// access private
+const getTypes = asyncHandler(async (req, res) => {
+  const types = await Type.find();
+  res.status(200).json(types);
+});
+
 module.exports = {
   addType,
+  getTypes
 };
