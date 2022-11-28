@@ -1,7 +1,7 @@
 const express=require('express')
 const router = express.Router();
-const {addDetails,getDetails}=require('../../Controllers/Car/detailController')
+const {addDetails,getDetails,updateDetail}=require('../../Controllers/Car/detailController')
 
-router.post('/',addDetails).get('/',getDetails)
+router.post('/',addDetails).get('/',getDetails).put('/:detail_id',updateDetail)
 
 module.exports=router
