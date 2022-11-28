@@ -5,7 +5,7 @@ const Detail = require("../../Models/Car/Detail");
 // @route /api/v1/details
 // access private
 const addDetails = asyncHandler(async (req, res) => {
-    if(!req.body.details.key || !req.body.details.value){
+    if(!req.body){
         res.status(400)
         throw new Error('Please add all fields')
     }
@@ -20,6 +20,16 @@ const addDetails = asyncHandler(async (req, res) => {
     }
 })
 
+// @desc GET getDetails
+// @route /api/v1/details
+// access private
+const getDetails = asyncHandler(async (req, res) => {
+    const details=await Detail.find()
+    res.status(200).json(details)
+})
+
+
 module.exports = {
-    addDetails
+    addDetails,
+    getDetails
 };
