@@ -54,8 +54,20 @@ const updateCar = asyncHandler(async (req, res) => {
   }
 });
 
+//@desc DELETE Car
+//@route /api/v1/cars/:car_id
+//@access private
+const deleteCar = asyncHandler(async (req, res) => {
+  const car = await Car.findById(req.params.car_id);
+  car.remove();
+  res.status(200).json({
+    message: "Car deleted successfully",
+  });
+});
+
 module.exports = {
   addCar,
   getCars,
-  updateCar
+  updateCar,
+  deleteCar
 };
