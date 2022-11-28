@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const carSchema = mongoose.Schema(
+const detailSchema = mongoose.Schema(
   {
     details: [
         {
@@ -18,4 +18,4 @@ const carSchema = mongoose.Schema(
     timestamps: true,
   }
 );
-module.exports = mongoose.model("Car", carSchema);
+module.exports = mongoose.model("Detail", detailSchema);
