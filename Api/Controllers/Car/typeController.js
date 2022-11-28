@@ -29,7 +29,33 @@ const getTypes = asyncHandler(async (req, res) => {
   res.status(200).json(types);
 });
 
+//@desc PUT  Update type
+//@route /api/v1/types/:type_id
+//@access private
+const updateType = asyncHandler(async (req, res) => {
+  const type = await Type.findById(req.params.type_id);
+  if (!type) {
+    throw new Error("Type not found");
+  }
+  const updatedType = await Color.findByIdAndUpdate(
+    req.params.type_id,
+    req.body,
+    {
+      new: true,
+    }
+  );
+  if (updatedType) {
+    res.status(200).json({
+      message: "Type updated successfully",
+    });
+  }else{
+    res.status(400)
+    throw new Error('Something wrong :(')
+  }
+});
+
 module.exports = {
   addType,
-  getTypes
+  getTypes,
+  updateType
 };
