@@ -1,7 +1,7 @@
 <h1 align="center">
   <br>
   <br>
-  Merkob.ma
+  NAMX
   <br>
 </h1>
 
