@@ -10,6 +10,11 @@ const typeSchema = mongoose.Schema(
         required:true,
         ref:"Detail"
     },
+    color:{
+      type:[mongoose.Schema.Types.ObjectId],
+      required:true,
+      ref:"Color"
+  },
   },
   {
     timestamps: true,
