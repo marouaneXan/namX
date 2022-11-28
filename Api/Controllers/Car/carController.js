@@ -1,11 +1,17 @@
 const asyncHandler = require("express-async-handler");
 const Car = require("../../Models/Car/Car");
+const Type=require('../../Models/Car/Type')
 
 // @desc POST addCar
 // @route /api/v1/cars
 // access private
 const addCar = asyncHandler(async (req, res) => {
   const { car_name } = req.body;
+  const type=await Type.findById(req.params.type_id)
+  if(type){
+    res.status(400);
+    throw new Error("Type not exist :(");
+  }
   if (!car_name) {
     res.status(400);
     throw new Error("Please add all fields");
