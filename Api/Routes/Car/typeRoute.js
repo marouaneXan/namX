@@ -1,7 +1,7 @@
 const express=require('express');
 const router = express.Router();
-const {addType, getTypes}=require('../../Controllers/Car/typeController')
+const {addType, getTypes, updateType}=require('../../Controllers/Car/typeController')
 
-router.post('/',addType).get('/',getTypes)
+router.post('/',addType).get('/',getTypes).put('/:type_id',updateType)
 
 module.exports=router
