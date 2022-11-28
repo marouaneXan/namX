@@ -32,6 +32,9 @@ app.use('/api/v1/cars',require('./Routes/Car/carRoute'))
 //Type route
 app.use('/api/v1/types',require('./Routes/Car/typeRoute'))
 
+//Color route
+app.use('/api/v1/colors',require('./Routes/Car/colorRoute'))
+
 //*************************************************************************************/
 
 //Error handler

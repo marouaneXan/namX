@@ -24,7 +24,7 @@ const addColor = asyncHandler(async (req, res) => {
 // @desc GET getColors
 // @route /api/v1/colors
 // access private
-const getcolors = asyncHandler(async (req, res) => {
+const getColors = asyncHandler(async (req, res) => {
   const colors = await Color.find();
   res.status(200).json(colors);
 });
@@ -67,7 +67,7 @@ const deleteColor = asyncHandler(async (req, res) => {
 
 module.exports = {
   addColor,
-  getcolors,
+  getColors,
   updateColor,
   deleteColor
 };
