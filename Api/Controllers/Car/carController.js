@@ -34,7 +34,9 @@ const addCar = asyncHandler(async (req, res) => {
 // @route /api/v1/cars
 // access private
 const getCars = asyncHandler(async (req, res) => {
-  const cars = await Car.find().populate("type");
+  const cars = await Car.find().populate(
+      { path: "type", populate: [{ path: "details"},{ path: "color"}] },
+  );
   res.status(200).json(cars);
 });
 
