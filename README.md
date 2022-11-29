@@ -21,7 +21,7 @@
   <a href="#resources">Api</a> 
 </p>
 
-<!-- ![Class_Diagram](https://user-images.githubusercontent.com/93975817/196899186-b0cfad35-8365-4e32-acd0-345117e0d3f4.png) -->
+[namx.pdf](https://github.com/marouaneXan/namX/files/10113223/namx.pdf)
 
 ## How To Use
 
