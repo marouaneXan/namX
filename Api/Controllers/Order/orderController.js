@@ -51,7 +51,7 @@ const cancelOrder = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Canceling order failed :(");
   }
-  const difference_time = diff(time_now, order.order_time);
+  const difference_time = diff(order.order_time, time_now);
   if (difference_time > "01:00:00") {
     reservation.remove();
     res.status(200).json({ message: "Canceling order successffuly" });
