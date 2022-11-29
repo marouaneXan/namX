@@ -25,7 +25,7 @@ const addType = asyncHandler(async (req, res) => {
 // @route /api/v1/types
 // access private
 const getTypes = asyncHandler(async (req, res) => {
-  const types = await Type.find();
+  const types = await Type.find().populate(["details","color"]);
   types.length
     ? res.status(200).json(types)
     : res.status(400).json({
