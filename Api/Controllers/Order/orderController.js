@@ -39,6 +39,28 @@ const makeOrder = asyncHandler(async (req, res) => {
   } else res.status(400).json({ message: "Order failed" });
 });
 
+//@desc DELETE Reservations
+//@route /api/v1/reservation/reservation_id/trip_id/client_id
+//@access public
+const cancelOrder = asyncHandler(async (req, res) => {
+  const time_now = new Date().toLocaleTimeString();
+  const order = await Order.findById(req.params.reservation_id);
+  const car = await Car.findById(req.params.trip_id);
+  const client = await Client.findById(req.params.client_id);
+  if (!order || !car || !client) {
+    res.status(400);
+    throw new Error("Canceling order failed :(");
+  }
+  const difference_time = diff(time_now, order.order_time);
+  if (difference_time > "01:00:00") {
+    reservation.remove();
+    res.status(200).json({ message: "Canceling order successffuly" });
+  } else {
+    res.status(400);
+    res.json({ message: "You cannot cancel this order :(" });
+  }
+});
+
 // difference btween two times
 function diff(start, end) {
   start = start.split(":");
@@ -56,5 +78,6 @@ function diff(start, end) {
 }
 module.exports = {
   getAllOrders,
-  makeOrder
+  makeOrder,
+  cancelOrder,
 };
