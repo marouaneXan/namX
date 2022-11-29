@@ -5,7 +5,7 @@ const Type = require("../../Models/Car/Type");
 // @route /api/v1/types
 // access private
 const addType = asyncHandler(async (req, res) => {
-  const { car_type,details,color } = req.body;
+  const { car_type, details, color } = req.body;
   if (!car_type || !details || !color) {
     res.status(400);
     throw new Error("Please add all fields");
@@ -15,7 +15,7 @@ const addType = asyncHandler(async (req, res) => {
     res.status(200).json({
       message: "Type created successfully",
     });
-  }else{
+  } else {
     res.status(400);
     throw new Error("Something wrong :(");
   }
@@ -26,7 +26,11 @@ const addType = asyncHandler(async (req, res) => {
 // access private
 const getTypes = asyncHandler(async (req, res) => {
   const types = await Type.find();
-  res.status(200).json(types);
+  types.length
+    ? res.status(200).json(types)
+    : res.status(400).json({
+        message: "There is no types yet",
+      });
 });
 
 //@desc PUT  Update type
@@ -48,9 +52,9 @@ const updateType = asyncHandler(async (req, res) => {
     res.status(200).json({
       message: "Type updated successfully",
     });
-  }else{
-    res.status(400)
-    throw new Error('Something wrong :(')
+  } else {
+    res.status(400);
+    throw new Error("Something wrong :(");
   }
 });
 
@@ -65,10 +69,9 @@ const deleteType = asyncHandler(async (req, res) => {
   });
 });
 
-
 module.exports = {
   addType,
   getTypes,
   updateType,
-  deleteType
+  deleteType,
 };
