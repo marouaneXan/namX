@@ -39,8 +39,8 @@ const makeOrder = asyncHandler(async (req, res) => {
   } else res.status(400).json({ message: "Order failed" });
 });
 
-//@desc DELETE Reservations
-//@route /api/v1/reservation/reservation_id/trip_id/client_id
+//@desc DELETE Order
+//@route /api/v1/orders/order_id/car_id/client_id
 //@access public
 const cancelOrder = asyncHandler(async (req, res) => {
   const time_now = new Date().toLocaleTimeString();
@@ -52,8 +52,8 @@ const cancelOrder = asyncHandler(async (req, res) => {
     throw new Error("Canceling order failed :(");
   }
   const difference_time = diff(order.order_time, time_now);
-  if (difference_time > "01:00:00") {
-    reservation.remove();
+  if (difference_time < "01:00:00") {
+    order.remove();
     res.status(200).json({ message: "Canceling order successffuly" });
   } else {
     res.status(400);
