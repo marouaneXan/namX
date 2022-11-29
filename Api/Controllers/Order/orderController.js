@@ -44,8 +44,8 @@ const makeOrder = asyncHandler(async (req, res) => {
 //@access public
 const cancelOrder = asyncHandler(async (req, res) => {
   const time_now = new Date().toLocaleTimeString();
-  const order = await Order.findById(req.params.reservation_id);
-  const car = await Car.findById(req.params.trip_id);
+  const order = await Order.findById(req.params.order_id);
+  const car = await Car.findById(req.params.car_id);
   const client = await Client.findById(req.params.client_id);
   if (!order || !car || !client) {
     res.status(400);
