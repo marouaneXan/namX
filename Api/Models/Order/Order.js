@@ -17,6 +17,10 @@ const orderSchema=mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         required:true,
         ref:"Client"
-    }
+    },
+    confirmed:{
+        type:Boolean,
+        default:false
+    },
 })
 module.exports = mongoose.model("Order",orderSchema)
