@@ -22,7 +22,8 @@ const makeOrder = asyncHandler(async (req, res) => {
   const date_now = new Date().toLocaleDateString("sv");
   const car = await Car.findById(req.params.car_id);
   const client = await Client.findById(req.params.client_id);
-  if (!car || !client) {
+  const {quantity}=req.body
+  if (!car || !client || !quantity) {
     res.status(400);
     throw new Error("Order failed");
   }
@@ -31,6 +32,7 @@ const makeOrder = asyncHandler(async (req, res) => {
     order_time: time_now,
     car: car._id,
     client: client._id,
+    quantity
   });
   if (order) {
     res

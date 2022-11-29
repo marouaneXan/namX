@@ -18,6 +18,10 @@ const orderSchema=mongoose.Schema({
         required:true,
         ref:"Client"
     },
+    quantity:{
+        type:String,
+        required:true
+    },
     confirmed:{
         type:Boolean,
         default:false
