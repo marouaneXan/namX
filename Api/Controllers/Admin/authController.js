@@ -12,8 +12,8 @@ const login = asyncHandler(async (req, res) => {
   
   if (admin) {
       res.json({
-          _id: admin.id,
-          token: generateToken(admin.id),
+          id: admin._id,
+          token: generateToken(admin._id),
           message: "Admin loged successfully"
       })
   } else {
