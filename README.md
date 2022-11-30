@@ -21,7 +21,7 @@
   <a href="#resources">Api</a> 
 </p>
 
-![namx - Page 1](https://user-images.githubusercontent.com/93975817/204536759-3f4a28d7-0709-498b-8988-3d518daf619c.png)
+![namx](https://user-images.githubusercontent.com/93975817/204757236-720ada8d-93e1-433c-94cf-c4eb78490acf.png)
 
 ## How To Use
 
