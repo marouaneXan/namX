@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
-const Client = require("../Models/Client");
+const Client = require("../../Models/Client/Client");
 const protectClient = asyncHandler(async (req, res, next) => {
   let token;
   if (
@@ -13,7 +13,7 @@ const protectClient = asyncHandler(async (req, res, next) => {
       //Verify Token
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
       //Get Client From Token
-      req.client = await Client.findById(decoded.client_id).select("-password");
+      req.client = await Client.findById(decoded.id).select("-password");
       if (req.client) next();
       else {
         res.status(401);
