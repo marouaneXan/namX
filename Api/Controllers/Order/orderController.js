@@ -14,6 +14,25 @@ const getAllOrders = asyncHandler(async (req, res) => {
       });
 });
 
+//@desc GET orders
+//@route /api/v1/orders/client_id
+//@access private
+const getAllClientOrders = asyncHandler(async (req, res) => {
+  const client_id = req.params.client_id;
+  if (!client_id)
+    res.status(400).json({
+      message: "Client not found",
+    });
+  else {
+    const orders = await Order.find(req.params.client_id);
+    orders.length
+      ? res.status(200).json(orders)
+      : res.status(400).json({
+          message: "You don't have any orders",
+        });
+  }
+});
+
 //@desc POST Order
 //@route /api/v1/orders
 //@access public
@@ -22,7 +41,7 @@ const makeOrder = asyncHandler(async (req, res) => {
   const date_now = new Date().toLocaleDateString("sv");
   const car = await Car.findById(req.params.car_id);
   const client = await Client.findById(req.params.client_id);
-  const {quantity}=req.body
+  const { quantity } = req.body;
   if (!car || !client || !quantity) {
     res.status(400);
     throw new Error("Order failed");
@@ -32,7 +51,7 @@ const makeOrder = asyncHandler(async (req, res) => {
     order_time: time_now,
     car: car._id,
     client: client._id,
-    quantity
+    quantity,
   });
   if (order) {
     res
@@ -82,4 +101,5 @@ module.exports = {
   getAllOrders,
   makeOrder,
   cancelOrder,
+  getAllClientOrders,
 };
