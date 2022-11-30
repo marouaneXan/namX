@@ -24,7 +24,7 @@ const getAllClientOrders = asyncHandler(async (req, res) => {
       message: "Client not found",
     });
   else {
-    const orders = await Order.find({client:req.params.client_id});
+    const orders = await Order.find({client:req.params.client_id})
     orders.length
       ? res.status(200).json(orders)
       : res.status(400).json({
