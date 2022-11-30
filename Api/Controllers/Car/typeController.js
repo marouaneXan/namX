@@ -58,20 +58,8 @@ const updateType = asyncHandler(async (req, res) => {
   }
 });
 
-//@desc DELETE type
-//@route /api/v1/types/:type_id
-//@access private
-const deleteType = asyncHandler(async (req, res) => {
-  const type = await Type.findById(req.params.type_id);
-  type.remove();
-  res.status(200).json({
-    message: "Type deleted successfully",
-  });
-});
-
 module.exports = {
   addType,
   getTypes,
   updateType,
-  deleteType,
 };
