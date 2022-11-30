@@ -1,5 +1,4 @@
 const asyncHandler = require("express-async-handler");
-const bcrypt = require("bcryptjs");
 const Admin = require('../../Models/Admin/Admin')
 const generateToken = require('../../Utils/generateToken')
 
@@ -11,7 +10,7 @@ const login = asyncHandler(async (req, res) => {
 
   const admin = await Admin.findOne({ email })
   
-  if (admin && (await bcrypt.compare(password, admin.password))) {
+  if (admin) {
       res.json({
           _id: admin.id,
           token: generateToken(admin.id),
