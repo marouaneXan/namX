@@ -18,13 +18,13 @@ const getAllOrders = asyncHandler(async (req, res) => {
 //@route /api/v1/orders/client_id
 //@access private
 const getAllClientOrders = asyncHandler(async (req, res) => {
-  const client_id = req.params.client_id;
-  if (!client_id)
+  // const client_id = req.params.client_id;
+  if (!req.params.client_id)
     res.status(400).json({
       message: "Client not found",
     });
   else {
-    const orders = await Order.find(req.params.client_id);
+    const orders = await Order.find({client:req.params.client_id});
     orders.length
       ? res.status(200).json(orders)
       : res.status(400).json({
