@@ -72,11 +72,11 @@ const deleteCar = asyncHandler(async (req, res) => {
   const car = await Car.findById(req.params.car_id);
   if (car) {
     car.remove();
-    await Car.findByIdAndUpdate(car.type, {
-      isActive: false,
-    });
     res.status(200).json({
       message: "Car deleted successfully",
+    });
+    await Type.findByIdAndUpdate(car.type._id, {
+      isActive: false,
     });
   } else {
     res.status(400);
