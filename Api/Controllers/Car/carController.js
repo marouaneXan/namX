@@ -24,6 +24,9 @@ const addCar = asyncHandler(async (req, res) => {
     res.status(200).json({
       message: "car created successfully",
     });
+    await Type.findByIdAndUpdate(type._id, {
+      isActive: true,
+    });
   } else {
     res.status(400);
     throw new Error("Something wrong :(");
