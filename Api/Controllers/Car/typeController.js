@@ -25,12 +25,23 @@ const addType = asyncHandler(async (req, res) => {
 // @route /api/v1/types
 // access private
 const getTypes = asyncHandler(async (req, res) => {
-  const types = await Type.find().populate(["details","color"]);
+  const types = await Type.find().populate(["details", "color"]);
   types.length
     ? res.status(200).json(types)
     : res.status(400).json({
         message: "There is no types yet",
       });
+});
+
+// @desc GET getType
+// @route /api/v1/types/type_id
+// access private
+const getType = asyncHandler(async (req, res) => {
+  const type = await Type.findById(req.params.type_id).populate([
+    "details",
+    "color",
+  ]);
+  res.status(200).json(type);
 });
 
 //@desc PUT  Update type
@@ -62,4 +73,5 @@ module.exports = {
   addType,
   getTypes,
   updateType,
+  getType
 };
